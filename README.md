@@ -8,11 +8,8 @@ This project aims to create a scalable, secure, and efficient API for a social n
 
 -   [Installation](#installation)
 -   [API Documentation](#api-documentation)
--   [Design Choices](#design-choices)
--   [Additional Features](#additional-features)
 -   [Deployment](#deployment)
--   [Submission Requirements](#submission-requirements)
--   [Notes](#notes)
+-   [Design Choices](#design-choices)
 
 ## Installation
 
@@ -28,7 +25,6 @@ This project aims to create a scalable, secure, and efficient API for a social n
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/Kayiro24/social-network.git
-    cd social-networking-api
     ```
 
 ## API Documentation
@@ -136,3 +132,52 @@ The API uses Bearer token authentication. You must include the `access_token` in
 Ensure to run tests using your API client, like Postman, to validate the endpoints.
 
 Now you can start interacting with the API!
+
+## Deployment
+
+This section provides instructions to deploy the Django application using Docker with PostgreSQL and Redis.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+-   [Docker](https://docs.docker.com/get-docker/)
+-   [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Setting Up the Environment
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/Kayiro24/social-network.git
+    cd your-project-directory
+    ```
+
+## Design Choices
+
+This section outlines the design choices made in the development of the application, focusing on the user management system, serialization, viewsets, and the core model.
+
+### User Model
+
+The **User** model extends Django's `AbstractUser` and includes the following enhancements:
+
+-   **Custom Roles**: Utilizing Django's `TextChoices`, the model supports three user roles: **Admin**, **Read**, and **Write**. This allows for granular access control and enhances user management capabilities.
+-   **Email and Password Handling**: The model requires a unique email field for user identification, ensuring users can log in with their email instead of a username. Passwords are securely hashed before storage.
+
+```python
+class User(AbstractUser, CreationModificationBase):
+    # ... fields and methods ...
+
+
+### Explanation of the Design Choices Section
+
+1. **User Model**: Highlights the enhancements and customizations to the Django user model, explaining the role choices and email/password management.
+2. **User Serializer**: Focuses on validation and the flexibility of the serializer for user creation.
+3. **Account ViewSet**: Describes the operations for managing user accounts, including permissions and transactional integrity.
+4. **Core Model**: Emphasizes the use of a base model for consistent timestamp tracking and UUID generation.
+5. **Friend Management**: Briefly touches on how friendships are modeled and the statuses available.
+6. **Overall Architecture**: Summarizes the modular approach and code reusability, emphasizing maintainability.
+
+This concise design choices section will help your readers quickly understand the architecture and decisions behind your application while keeping it engaging and informative.
+
+```
