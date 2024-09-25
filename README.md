@@ -31,6 +31,10 @@ This project aims to create a scalable, secure, and efficient API for a social n
 
 Everything is setup you just have to call the APIs in postman and keys will be setup automatically. Easy Peasy.
 
+```bash
+you can see the postman collection: Social Media.postman_collection
+```
+
 ## Authentication
 
 The API uses Bearer token authentication. You must include the `access_token` in the Authorization header for requests that require authentication.
